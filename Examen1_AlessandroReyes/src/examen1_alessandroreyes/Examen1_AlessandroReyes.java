@@ -1,6 +1,7 @@
 package examen1_alessandroreyes;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 public class Examen1_AlessandroReyes extends javax.swing.JFrame {
@@ -24,6 +25,19 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         nm3.setMinimum(1);
         js_edicion.setModel(nm3);
         //-------------------------------------
+        DefaultComboBoxModel modeloG = (DefaultComboBoxModel) cb_genero.getModel();
+        modeloG.addElement(new Genero("Fantasía"));
+        modeloG.addElement(new Genero("Romance"));
+        modeloG.addElement(new Genero("Acción"));
+        modeloG.addElement(new Genero("Historia"));
+        cb_genero.setModel(modeloG);
+        DefaultComboBoxModel modelom = (DefaultComboBoxModel) cb_mod.getModel();
+        modelom.addElement(new Genero("Fantasía"));
+        modelom.addElement(new Genero("Romance"));
+        modelom.addElement(new Genero("Acción"));
+        modelom.addElement(new Genero("Historia"));
+        cb_mod.setModel(modeloG);
+        //------------------------------------------------------
         p_crear.setVisible(false);
         p_fav.setVisible(false);
         p_modificar.setVisible(false);
@@ -68,6 +82,10 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         tf_precio = new javax.swing.JTextField();
         btn_crearlibro = new javax.swing.JButton();
         p_modificar = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        cb_mod = new javax.swing.JComboBox<>();
         p_otras = new javax.swing.JPanel();
         p_fav = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -104,8 +122,6 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Genero");
-
-        cb_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Precio");
@@ -213,15 +229,39 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         tp.addTab("Crear libros", p_crear);
 
+        jLabel12.setText("Que libro desea Modificar");
+
+        jLabel13.setText("Que desea modificar del libro");
+
+        cb_mod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout p_modificarLayout = new javax.swing.GroupLayout(p_modificar);
         p_modificar.setLayout(p_modificarLayout);
         p_modificarLayout.setHorizontalGroup(
             p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
+            .addGroup(p_modificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(87, 87, 87)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_mod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         p_modificarLayout.setVerticalGroup(
             p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(p_modificarLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
 
         tp.addTab("Modificar libros", p_modificar);
@@ -408,10 +448,13 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JButton bt_login;
     private javax.swing.JButton btn_crearlibro;
     private javax.swing.JComboBox<String> cb_genero;
+    private javax.swing.JComboBox<String> cb_mod;
     private com.toedter.calendar.JDateChooser dc_fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -422,6 +465,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JSpinner js_copias;
     private javax.swing.JSpinner js_edicion;
     private javax.swing.JSpinner js_puntaje;
