@@ -163,7 +163,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         p_otras = new javax.swing.JPanel();
         p_fav = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ta_lista = new javax.swing.JTextArea();
         p_login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_usuario = new javax.swing.JTextField();
@@ -261,6 +261,12 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tp.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tpStateChanged(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Titulo");
@@ -419,8 +425,6 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         l_genero.setText("Genero");
 
-        cb_genero2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         l_precio.setText("Precio");
 
         btn_modificar.setText("Modificar");
@@ -557,9 +561,9 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         tp.addTab("Otras acciones", p_otras);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ta_lista.setColumns(20);
+        ta_lista.setRows(5);
+        jScrollPane1.setViewportView(ta_lista);
 
         javax.swing.GroupLayout p_favLayout = new javax.swing.GroupLayout(p_fav);
         p_fav.setLayout(p_favLayout);
@@ -665,6 +669,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
             if(usuarios.get(i).getN_usuario().equals(tf_usuario.getText()) &&
                     usuarios.get(i).getContraseña().equals(tf_contraseña.getText())){
                 t = true;
+                user = i;
             }
         }
         if(t == false){
@@ -679,90 +684,94 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_loginMouseClicked
 
     private void btn_crearlibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearlibroMouseClicked
-        Libro l = new Libro(tf_titulo.getText(), tf_descripcion.getText(),  (Integer)js_puntaje.getValue(), 
-                (Integer)js_copias.getValue(), cb_genero.getSelectedItem().toString(), 
-                Integer.parseInt(tf_precio.getText()), (Integer)js_edicion.getValue(), tf_autor.getText(), 
-                dc_fecha.getDate());
-        l.setAutor((tf_autor.getText()));
-        libros.add(l);
-        JOptionPane.showMessageDialog(this, "Libro guardado exitosamente");
-        SpinnerNumberModel nm = new SpinnerNumberModel();
-        nm.setValue(1);
-        nm.setMinimum(1);
-        nm.setMaximum(5);
-        js_puntaje.setModel(nm);
-        SpinnerNumberModel nm2 = new SpinnerNumberModel();
-        nm2.setValue(1);
-        nm2.setMinimum(1);
-        js_copias.setModel(nm2);
-        SpinnerNumberModel nm3 = new SpinnerNumberModel();
-        nm3.setValue(1);
-        nm3.setMinimum(1);
-        js_edicion.setModel(nm3);
-        tf_titulo.setText("");
-        tf_descripcion.setText("");
-        tf_precio.setText("");
-        tf_autor.setText("");
-        dc_fecha.setDate(new Date());
-        
-        
+        try {
+            Libro l = new Libro(tf_titulo.getText(), tf_descripcion.getText(), (Integer) js_puntaje.getValue(),
+                    (Integer) js_copias.getValue(), cb_genero.getSelectedItem().toString(),
+                    Integer.parseInt(tf_precio.getText()), (Integer) js_edicion.getValue(), tf_autor.getText(),
+                    dc_fecha.getDate());
+            l.setAutor((tf_autor.getText()));
+            libros.add(l);
+            JOptionPane.showMessageDialog(this, "Libro guardado exitosamente");
+            SpinnerNumberModel nm = new SpinnerNumberModel();
+            nm.setValue(1);
+            nm.setMinimum(1);
+            nm.setMaximum(5);
+            js_puntaje.setModel(nm);
+            SpinnerNumberModel nm2 = new SpinnerNumberModel();
+            nm2.setValue(1);
+            nm2.setMinimum(1);
+            js_copias.setModel(nm2);
+            SpinnerNumberModel nm3 = new SpinnerNumberModel();
+            nm3.setValue(1);
+            nm3.setMinimum(1);
+            js_edicion.setModel(nm3);
+            tf_titulo.setText("");
+            tf_descripcion.setText("");
+            tf_precio.setText("");
+            tf_autor.setText("");
+            dc_fecha.setDate(new Date());
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Oucrrio un error y no se guardaron los datos");
+        }
+
     }//GEN-LAST:event_btn_crearlibroMouseClicked
 
     private void btn_continueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_continueMouseClicked
-        if(cb_mod.getSelectedItem().toString().equals("Titulo") ){
+        if (cb_mod.getSelectedItem().toString().equals("Titulo")) {
             l_titulo.setVisible(true);
             tf_titulo2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Autor")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Autor")) {
             l_autor.setVisible(true);
             tf_autor2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Fecha")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Fecha")) {
             l_fecha.setVisible(true);
             dc_fecha2.setVisible(true);
         } else if (cb_mod.getSelectedItem().toString().equals("Copias")) {
             l_copias.setVisible(true);
             js_copias2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Edicion")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Edicion")) {
             l_edicion.setVisible(true);
             js_edicion2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Puntaje")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Puntaje")) {
             l_puntaje.setVisible(true);
             js_puntaje2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Genero")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Genero")) {
             l_genero.setVisible(true);
             cb_genero2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Precio")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Precio")) {
             l_precio.setVisible(true);
             tf_precio2.setVisible(true);
-        }else if(cb_mod.getSelectedItem().toString().equals("Descripcion")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Descripcion")) {
             l_descripcion.setVisible(true);
             tf_descripcion2.setVisible(true);
         }
     }//GEN-LAST:event_btn_continueMouseClicked
 
     private void btn_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modificarMouseClicked
-        int pos=0;
+        int pos = 0;
         for (int i = 0; i < libros.size(); i++) {
-            if(libros.get(i).getTitulo().equals(tf_mod.getText())){
+            if (libros.get(i).getTitulo().equals(tf_mod.getText())) {
                 pos = i;
             }
         }
-        if(cb_mod.getSelectedItem().toString().equals("Titulo") ){
+        if (cb_mod.getSelectedItem().toString().equals("Titulo")) {
             libros.get(pos).setTitulo(tf_titulo2.getText());
-        }else if(cb_mod.getSelectedItem().toString().equals("Autor")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Autor")) {
             libros.get(pos).setAutor(tf_autor2.getText());
-        }else if(cb_mod.getSelectedItem().toString().equals("Fecha")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Fecha")) {
             libros.get(pos).setPublish(dc_fecha2.getDate());
         } else if (cb_mod.getSelectedItem().toString().equals("Copias")) {
-            libros.get(pos).setCopias((Integer)js_copias2.getValue());
-        }else if(cb_mod.getSelectedItem().toString().equals("Edicion")){
-            libros.get(pos).setEdicion((Integer)js_edicion2.getValue());
-        }else if(cb_mod.getSelectedItem().toString().equals("Puntaje")){
-            libros.get(pos).setPuntaje((Integer)js_puntaje2.getValue());
-        }else if(cb_mod.getSelectedItem().toString().equals("Genero")){
+            libros.get(pos).setCopias((Integer) js_copias2.getValue());
+        } else if (cb_mod.getSelectedItem().toString().equals("Edicion")) {
+            libros.get(pos).setEdicion((Integer) js_edicion2.getValue());
+        } else if (cb_mod.getSelectedItem().toString().equals("Puntaje")) {
+            libros.get(pos).setPuntaje((Integer) js_puntaje2.getValue());
+        } else if (cb_mod.getSelectedItem().toString().equals("Genero")) {
             libros.get(pos).setGenero(cb_genero2.getSelectedItem().toString());
-        }else if(cb_mod.getSelectedItem().toString().equals("Precio")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Precio")) {
             libros.get(pos).setValor(Integer.parseInt(tf_precio2.getText()));
-        }else if(cb_mod.getSelectedItem().toString().equals("Descripcion")){
+        } else if (cb_mod.getSelectedItem().toString().equals("Descripcion")) {
             libros.get(pos).setDescripcion(tf_descripcion2.getText());
         }
         l_copias.setVisible(false);
@@ -787,12 +796,27 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_modificarMouseClicked
 
     private void btn_crearnuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearnuMouseClicked
-        Usuario U = new Usuario(tf_nuser.getText(), tf_ncontra.getText(), dc_nnace.getDate(),  
-                Integer.parseInt(tf_numtel.getText()), tf_nemail.getText(), cb_ngu.getSelectedItem().toString());
-        usuarios.add(U);
-        JOptionPane.showMessageDialog(this, "Usuario creado Exitosamente");
-        Crear_user.setVisible(false);
+        try {
+            Usuario U = new Usuario(tf_nuser.getText(), tf_ncontra.getText(), dc_nnace.getDate(),
+                    Integer.parseInt(tf_numtel.getText()), tf_nemail.getText(), cb_ngu.getSelectedItem().toString());
+            usuarios.add(U);
+            JOptionPane.showMessageDialog(this, "Usuario creado Exitosamente");
+            Crear_user.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Oucrrio un error y no se guardaron los datos");
+        }
     }//GEN-LAST:event_btn_crearnuMouseClicked
+
+    private void tpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpStateChanged
+        if(tp.getSelectedIndex()==3){
+            ta_lista.setText("");
+            for (int i = 0; i < libros.size(); i++) {
+                if(libros.get(i).getGenero() == usuarios.get(user).getGen_fav())
+                    ta_lista.append(libros.get(i).getTitulo()+"\n");
+            }
+        }
+    }//GEN-LAST:event_tpStateChanged
 
     /**
      * @param args the command line arguments
@@ -863,7 +887,6 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JSpinner js_copias;
     private javax.swing.JSpinner js_copias2;
     private javax.swing.JSpinner js_edicion;
@@ -884,6 +907,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JPanel p_login;
     private javax.swing.JPanel p_modificar;
     private javax.swing.JPanel p_otras;
+    private javax.swing.JTextArea ta_lista;
     private javax.swing.JTextField tf_autor;
     private javax.swing.JTextField tf_autor2;
     private javax.swing.JTextField tf_contraseña;
@@ -902,6 +926,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
     ArrayList <Usuario> usuarios = new ArrayList();
+    int user;
     Usuario admi = new Usuario("admi", "1234");
     Usuario User1 = new Usuario("user1", "1234");
     Usuario User2 = new Usuario("user2", "1234");
