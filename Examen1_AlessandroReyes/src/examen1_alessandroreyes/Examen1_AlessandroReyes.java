@@ -41,6 +41,12 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         modelom.addElement(new Genero("Acción"));
         modelom.addElement(new Genero("Historia"));
         cb_genero2.setModel(modelom);
+        DefaultComboBoxModel modelonu = (DefaultComboBoxModel) cb_ngu.getModel();
+        modelonu.addElement(new Genero("Fantasía"));
+        modelonu.addElement(new Genero("Romance"));
+        modelonu.addElement(new Genero("Acción"));
+        modelonu.addElement(new Genero("Historia"));
+        cb_ngu.setModel(modelonu);
         DefaultComboBoxModel mm = (DefaultComboBoxModel) cb_mod.getModel();
         mm.addElement("Titulo");
         mm.addElement("Autor");
@@ -73,6 +79,16 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         tf_autor2.setVisible(false);
         //------------------------------------------------------
         tp.setEnabled(false);
+        usuarios.add(admi);
+        usuarios.add(User1);
+        usuarios.add(User2);
+        usuarios.add(User3);
+        usuarios.add(User4);
+        libros.add(libro1);
+        libros.add(libro2);
+        libros.add(libro3);
+        libros.add(libro4);
+        libros.add(libro5);
     }
     
     /**
@@ -84,6 +100,20 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Crear_user = new javax.swing.JFrame();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        btn_crearnu = new javax.swing.JButton();
+        tf_nuser = new javax.swing.JTextField();
+        tf_ncontra = new javax.swing.JTextField();
+        tf_numtel = new javax.swing.JTextField();
+        tf_nemail = new javax.swing.JTextField();
+        cb_ngu = new javax.swing.JComboBox<>();
+        dc_nnace = new com.toedter.calendar.JDateChooser();
         tp = new javax.swing.JTabbedPane();
         p_crear = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -140,6 +170,95 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tf_contraseña = new javax.swing.JTextField();
         bt_login = new javax.swing.JButton();
+
+        jLabel14.setText("Ingrese su usuario");
+
+        jLabel15.setText("Ingrese la contraseña");
+
+        jLabel16.setText("Ingrese su Fecha de nacimiento");
+
+        jLabel17.setText("Ingrese su numoer de telefono");
+
+        jLabel18.setText("ingrese su email");
+
+        jLabel19.setText("Ingrese su genero favorito");
+
+        btn_crearnu.setText("Crear");
+        btn_crearnu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_crearnuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Crear_userLayout = new javax.swing.GroupLayout(Crear_user.getContentPane());
+        Crear_user.getContentPane().setLayout(Crear_userLayout);
+        Crear_userLayout.setHorizontalGroup(
+            Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Crear_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Crear_userLayout.createSequentialGroup()
+                        .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel19))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Crear_userLayout.createSequentialGroup()
+                        .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Crear_userLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(Crear_userLayout.createSequentialGroup()
+                                .addComponent(tf_numtel, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                .addGap(274, 274, 274)))
+                        .addComponent(btn_crearnu)
+                        .addGap(111, 111, 111))
+                    .addGroup(Crear_userLayout.createSequentialGroup()
+                        .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cb_ngu, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_nuser, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                .addComponent(tf_ncontra)
+                                .addComponent(tf_nemail))
+                            .addComponent(dc_nnace, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        Crear_userLayout.setVerticalGroup(
+            Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Crear_userLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tf_nuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel15)
+                .addGap(13, 13, 13)
+                .addComponent(tf_ncontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addGap(13, 13, 13)
+                .addComponent(dc_nnace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Crear_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Crear_userLayout.createSequentialGroup()
+                        .addComponent(tf_numtel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(tf_nemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Crear_userLayout.createSequentialGroup()
+                        .addComponent(btn_crearnu)
+                        .addGap(54, 54, 54)))
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(cb_ngu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -535,6 +654,8 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        tp.getAccessibleContext().setAccessibleParent(p_login);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -547,17 +668,13 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
             }
         }
         if(t == false){
-            p_crear.setEnabled(false);
-            p_fav.setEnabled(false);
-            p_modificar.setEnabled(false);
-            p_otras.setEnabled(false);
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
-            
+            Crear_user.setVisible(true);
         }else{
-            p_crear.setVisible(true);
-            p_fav.setVisible(true);
-            p_modificar.setVisible(true);
-            p_otras.setVisible(true);
+            JOptionPane.showMessageDialog(this, "Ha ingresado con exito");
+            tp.setEnabled(true);
+            tf_usuario.setText("");
+            tf_contraseña.setText("");
         }
     }//GEN-LAST:event_bt_loginMouseClicked
 
@@ -669,6 +786,14 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         tf_mod.setText("");
     }//GEN-LAST:event_btn_modificarMouseClicked
 
+    private void btn_crearnuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearnuMouseClicked
+        Usuario U = new Usuario(tf_nuser.getText(), tf_ncontra.getText(), dc_nnace.getDate(),  
+                Integer.parseInt(tf_numtel.getText()), tf_nemail.getText(), cb_ngu.getSelectedItem().toString());
+        usuarios.add(U);
+        JOptionPane.showMessageDialog(this, "Usuario creado Exitosamente");
+        Crear_user.setVisible(false);
+    }//GEN-LAST:event_btn_crearnuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -705,20 +830,30 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame Crear_user;
     private javax.swing.JButton bt_login;
     private javax.swing.JButton btn_continue;
     private javax.swing.JButton btn_crearlibro;
+    private javax.swing.JButton btn_crearnu;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JComboBox<String> cb_genero;
     private javax.swing.JComboBox<String> cb_genero2;
     private javax.swing.JComboBox<String> cb_mod;
+    private javax.swing.JComboBox<String> cb_ngu;
     private com.toedter.calendar.JDateChooser dc_fecha;
     private com.toedter.calendar.JDateChooser dc_fecha2;
+    private com.toedter.calendar.JDateChooser dc_nnace;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -755,6 +890,10 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JTextField tf_descripcion;
     private javax.swing.JTextField tf_descripcion2;
     private javax.swing.JTextField tf_mod;
+    private javax.swing.JTextField tf_ncontra;
+    private javax.swing.JTextField tf_nemail;
+    private javax.swing.JTextField tf_numtel;
+    private javax.swing.JTextField tf_nuser;
     private javax.swing.JTextField tf_precio;
     private javax.swing.JTextField tf_precio2;
     private javax.swing.JTextField tf_titulo;
@@ -766,9 +905,17 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     Usuario admi = new Usuario("admi", "1234");
     Usuario User1 = new Usuario("user1", "1234");
     Usuario User2 = new Usuario("user2", "1234");
-    Usuario User4 = new Usuario("user3", "1234");
-    Usuario User5 = new Usuario("user4", "1234");
+    Usuario User3 = new Usuario("user3", "1234");
+    Usuario User4 = new Usuario("user4", "1234");
     ArrayList <Libro> libros = new ArrayList();
     Libro libro1 = new Libro("Cruzando el parque", "De un niño abandonado", 2, 100, 
             "Romance", 990, 1, "Alessandro");
+    Libro libro2 = new Libro("Cruzando el lago", "De una niña abandonado", 2, 100, 
+            "Romance", 990, 1, "Reyes");
+    Libro libro3 = new Libro("Narcos", "Unos presidentes en apuros", 5, 100, 
+            "Accion", 1990, 1, "Trimarchi");
+    Libro libro4 = new Libro("Iron Maiden", "Historia de una banda", 2, 100, 
+            "HIstoria", 990, 1, "Alessandro");
+    Libro libro5 = new Libro("El Principe", "De un niño afortunado", 2, 100, 
+            "Fantasia", 990, 1, "Gabriel");
 }
