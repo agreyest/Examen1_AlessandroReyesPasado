@@ -17,6 +17,18 @@ public class Libro {
     }
 
     public Libro(String titulo, String descripcion, int puntaje, int copias, 
+            String genero, int valor, int edicion, String autor) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.puntaje = puntaje;
+        this.copias = copias;
+        this.genero = genero;
+        this.valor = valor;
+        this.edicion = edicion;
+        this.autor = autor;
+    }
+    
+    public Libro(String titulo, String descripcion, int puntaje, int copias, 
             String genero, int valor, int edicion, String autor, Date publish) {
         this.titulo = titulo;
         this.descripcion = descripcion;

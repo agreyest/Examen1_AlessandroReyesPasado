@@ -1,6 +1,7 @@
 package examen1_alessandroreyes;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
@@ -16,14 +17,17 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         nm.setMinimum(1);
         nm.setMaximum(5);
         js_puntaje.setModel(nm);
+        js_puntaje2.setModel(nm);
         SpinnerNumberModel nm2 = new SpinnerNumberModel();
         nm2.setValue(1);
         nm2.setMinimum(1);
         js_copias.setModel(nm2);
+        js_copias2.setModel(nm2);
         SpinnerNumberModel nm3 = new SpinnerNumberModel();
         nm3.setValue(1);
         nm3.setMinimum(1);
         js_edicion.setModel(nm3);
+        js_edicion2.setModel(nm3);
         //-------------------------------------
         DefaultComboBoxModel modeloG = (DefaultComboBoxModel) cb_genero.getModel();
         modeloG.addElement(new Genero("Fantasía"));
@@ -31,24 +35,44 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         modeloG.addElement(new Genero("Acción"));
         modeloG.addElement(new Genero("Historia"));
         cb_genero.setModel(modeloG);
-        DefaultComboBoxModel modelom = (DefaultComboBoxModel) cb_mod.getModel();
+        DefaultComboBoxModel modelom = (DefaultComboBoxModel) cb_genero2.getModel();
         modelom.addElement(new Genero("Fantasía"));
         modelom.addElement(new Genero("Romance"));
         modelom.addElement(new Genero("Acción"));
         modelom.addElement(new Genero("Historia"));
-        cb_mod.setModel(modeloG);
+        cb_genero2.setModel(modelom);
+        DefaultComboBoxModel mm = (DefaultComboBoxModel) cb_mod.getModel();
+        mm.addElement("Titulo");
+        mm.addElement("Autor");
+        mm.addElement("Fecha");
+        mm.addElement("Copias");
+        mm.addElement("Edicion");
+        mm.addElement("Puntaje");
+        mm.addElement("Genero");
+        mm.addElement("Precio");
+        mm.addElement("Descripcion");
+        cb_mod.setModel(mm);
         //------------------------------------------------------
-        p_crear.setVisible(false);
-        p_fav.setVisible(false);
-        p_modificar.setVisible(false);
-        p_otras.setVisible(false);
-        p_crear.setEnabled(false);
-        p_fav.setEnabled(false);
-        p_modificar.setEnabled(false);
-        p_otras.setEnabled(false);
-        p_crear.setEnabled(false);
-        p_login.setInheritsPopupMenu(true);
-        
+        l_copias.setVisible(false);
+        js_copias2.setVisible(false);
+        l_descripcion.setVisible(false);
+        tf_descripcion2.setVisible(false);
+        l_edicion.setVisible(false);
+        js_edicion2.setVisible(false);
+        l_fecha.setVisible(false);
+        dc_fecha2.setVisible(false);
+        l_genero.setVisible(false);
+        cb_genero2.setVisible(false);
+        l_precio.setVisible(false);
+        tf_precio2.setVisible(false);
+        l_puntaje.setVisible(false);
+        js_puntaje2.setVisible(false);
+        l_titulo.setVisible(false);
+        tf_titulo2.setVisible(false);
+        l_autor.setVisible(false);
+        tf_autor2.setVisible(false);
+        //------------------------------------------------------
+        tp.setEnabled(false);
     }
     
     /**
@@ -83,9 +107,29 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         btn_crearlibro = new javax.swing.JButton();
         p_modificar = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_mod = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cb_mod = new javax.swing.JComboBox<>();
+        btn_continue = new javax.swing.JButton();
+        l_titulo = new javax.swing.JLabel();
+        l_descripcion = new javax.swing.JLabel();
+        l_autor = new javax.swing.JLabel();
+        l_fecha = new javax.swing.JLabel();
+        l_puntaje = new javax.swing.JLabel();
+        tf_titulo2 = new javax.swing.JTextField();
+        tf_autor2 = new javax.swing.JTextField();
+        tf_descripcion2 = new javax.swing.JTextField();
+        l_copias = new javax.swing.JLabel();
+        js_puntaje2 = new javax.swing.JSpinner();
+        js_copias2 = new javax.swing.JSpinner();
+        l_edicion = new javax.swing.JLabel();
+        js_edicion2 = new javax.swing.JSpinner();
+        l_genero = new javax.swing.JLabel();
+        cb_genero2 = new javax.swing.JComboBox<>();
+        dc_fecha2 = new com.toedter.calendar.JDateChooser();
+        l_precio = new javax.swing.JLabel();
+        tf_precio2 = new javax.swing.JTextField();
+        btn_modificar = new javax.swing.JButton();
         p_otras = new javax.swing.JPanel();
         p_fav = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -163,17 +207,15 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                                             .addComponent(js_copias))
                                         .addGap(102, 102, 102)))
                                 .addGap(80, 80, 80)
-                                .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel4)
-                                        .addComponent(tf_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(dc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4)
+                                    .addComponent(tf_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(p_crearLayout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(js_edicion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(77, 77, 77))))
+                                        .addComponent(js_edicion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(tf_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(132, Short.MAX_VALUE))
                     .addGroup(p_crearLayout.createSequentialGroup()
@@ -204,10 +246,12 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(js_puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(js_puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(js_edicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
                 .addGroup(p_crearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(js_copias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,32 +267,107 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                         .addGap(10, 10, 10)))
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tf_precio, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(tf_precio, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tp.addTab("Crear libros", p_crear);
 
-        jLabel12.setText("Que libro desea Modificar");
+        jLabel12.setText("Titulo del libro que desea modificar");
 
         jLabel13.setText("Que desea modificar del libro");
 
-        cb_mod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btn_continue.setText("Continue");
+        btn_continue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_continueMouseClicked(evt);
+            }
+        });
+
+        l_titulo.setText("Titulo");
+
+        l_descripcion.setText("Descripcion");
+
+        l_autor.setText("Autor");
+
+        l_fecha.setText("Fecha");
+
+        l_puntaje.setText("Puntaje");
+
+        l_copias.setText("Copias");
+
+        l_edicion.setText("Edicion");
+
+        l_genero.setText("Genero");
+
+        cb_genero2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        l_precio.setText("Precio");
+
+        btn_modificar.setText("Modificar");
+        btn_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_modificarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout p_modificarLayout = new javax.swing.GroupLayout(p_modificar);
         p_modificar.setLayout(p_modificarLayout);
         p_modificarLayout.setHorizontalGroup(
             p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_modificarLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(87, 87, 87)
-                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_mod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(263, Short.MAX_VALUE))
+                    .addGroup(p_modificarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(l_genero)
+                        .addGap(224, 224, 224)
+                        .addComponent(l_precio))
+                    .addGroup(p_modificarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(p_modificarLayout.createSequentialGroup()
+                                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tf_mod)
+                                        .addComponent(jLabel12)
+                                        .addComponent(l_titulo)
+                                        .addComponent(l_descripcion)
+                                        .addComponent(tf_descripcion2)
+                                        .addComponent(tf_titulo2))
+                                    .addComponent(cb_genero2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(p_modificarLayout.createSequentialGroup()
+                                        .addGap(87, 87, 87)
+                                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(l_fecha)
+                                            .addComponent(l_autor)
+                                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cb_mod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(tf_autor2)
+                                            .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p_modificarLayout.createSequentialGroup()
+                                                    .addComponent(l_edicion)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(js_edicion2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(dc_fecha2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(p_modificarLayout.createSequentialGroup()
+                                        .addGap(96, 96, 96)
+                                        .addComponent(tf_precio2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p_modificarLayout.createSequentialGroup()
+                                    .addComponent(l_copias)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(js_copias2))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p_modificarLayout.createSequentialGroup()
+                                    .addComponent(l_puntaje)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(js_puntaje2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(p_modificarLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_modificar)
+                            .addComponent(btn_continue))))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         p_modificarLayout.setVerticalGroup(
             p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,9 +378,49 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_continue)
+                .addGap(18, 18, 18)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(p_modificarLayout.createSequentialGroup()
+                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(l_titulo)
+                            .addComponent(l_autor))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_autor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(l_descripcion)
+                            .addComponent(l_fecha))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_descripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dc_fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_puntaje)
+                    .addComponent(js_puntaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_edicion)
+                    .addComponent(js_edicion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_copias)
+                    .addComponent(js_copias2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_genero)
+                    .addComponent(l_precio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(p_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_genero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_precio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(btn_modificar))
         );
 
         tp.addTab("Modificar libros", p_modificar);
@@ -357,6 +516,8 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         tp.addTab("Log in", p_login);
 
+        tp.setSelectedComponent(p_login);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -380,8 +541,8 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private void bt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_loginMouseClicked
         boolean t = false;
         for (int i = 0; i < usuarios.size(); i++) {
-            if(usuarios.get(i).getN_usuario().equals(tf_usuario) &&
-                    usuarios.get(i).getContraseña().equals(tf_contraseña)){
+            if(usuarios.get(i).getN_usuario().equals(tf_usuario.getText()) &&
+                    usuarios.get(i).getContraseña().equals(tf_contraseña.getText())){
                 t = true;
             }
         }
@@ -407,7 +568,106 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                 dc_fecha.getDate());
         l.setAutor((tf_autor.getText()));
         libros.add(l);
+        JOptionPane.showMessageDialog(this, "Libro guardado exitosamente");
+        SpinnerNumberModel nm = new SpinnerNumberModel();
+        nm.setValue(1);
+        nm.setMinimum(1);
+        nm.setMaximum(5);
+        js_puntaje.setModel(nm);
+        SpinnerNumberModel nm2 = new SpinnerNumberModel();
+        nm2.setValue(1);
+        nm2.setMinimum(1);
+        js_copias.setModel(nm2);
+        SpinnerNumberModel nm3 = new SpinnerNumberModel();
+        nm3.setValue(1);
+        nm3.setMinimum(1);
+        js_edicion.setModel(nm3);
+        tf_titulo.setText("");
+        tf_descripcion.setText("");
+        tf_precio.setText("");
+        tf_autor.setText("");
+        dc_fecha.setDate(new Date());
+        
+        
     }//GEN-LAST:event_btn_crearlibroMouseClicked
+
+    private void btn_continueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_continueMouseClicked
+        if(cb_mod.getSelectedItem().toString().equals("Titulo") ){
+            l_titulo.setVisible(true);
+            tf_titulo2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Autor")){
+            l_autor.setVisible(true);
+            tf_autor2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Fecha")){
+            l_fecha.setVisible(true);
+            dc_fecha2.setVisible(true);
+        } else if (cb_mod.getSelectedItem().toString().equals("Copias")) {
+            l_copias.setVisible(true);
+            js_copias2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Edicion")){
+            l_edicion.setVisible(true);
+            js_edicion2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Puntaje")){
+            l_puntaje.setVisible(true);
+            js_puntaje2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Genero")){
+            l_genero.setVisible(true);
+            cb_genero2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Precio")){
+            l_precio.setVisible(true);
+            tf_precio2.setVisible(true);
+        }else if(cb_mod.getSelectedItem().toString().equals("Descripcion")){
+            l_descripcion.setVisible(true);
+            tf_descripcion2.setVisible(true);
+        }
+    }//GEN-LAST:event_btn_continueMouseClicked
+
+    private void btn_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modificarMouseClicked
+        int pos=0;
+        for (int i = 0; i < libros.size(); i++) {
+            if(libros.get(i).getTitulo().equals(tf_mod.getText())){
+                pos = i;
+            }
+        }
+        if(cb_mod.getSelectedItem().toString().equals("Titulo") ){
+            libros.get(pos).setTitulo(tf_titulo2.getText());
+        }else if(cb_mod.getSelectedItem().toString().equals("Autor")){
+            libros.get(pos).setAutor(tf_autor2.getText());
+        }else if(cb_mod.getSelectedItem().toString().equals("Fecha")){
+            libros.get(pos).setPublish(dc_fecha2.getDate());
+        } else if (cb_mod.getSelectedItem().toString().equals("Copias")) {
+            libros.get(pos).setCopias((Integer)js_copias2.getValue());
+        }else if(cb_mod.getSelectedItem().toString().equals("Edicion")){
+            libros.get(pos).setEdicion((Integer)js_edicion2.getValue());
+        }else if(cb_mod.getSelectedItem().toString().equals("Puntaje")){
+            libros.get(pos).setPuntaje((Integer)js_puntaje2.getValue());
+        }else if(cb_mod.getSelectedItem().toString().equals("Genero")){
+            libros.get(pos).setGenero(cb_genero2.getSelectedItem().toString());
+        }else if(cb_mod.getSelectedItem().toString().equals("Precio")){
+            libros.get(pos).setValor(Integer.parseInt(tf_precio2.getText()));
+        }else if(cb_mod.getSelectedItem().toString().equals("Descripcion")){
+            libros.get(pos).setDescripcion(tf_descripcion2.getText());
+        }
+        l_copias.setVisible(false);
+        js_copias2.setVisible(false);
+        l_descripcion.setVisible(false);
+        tf_descripcion2.setVisible(false);
+        l_edicion.setVisible(false);
+        js_edicion2.setVisible(false);
+        l_fecha.setVisible(false);
+        dc_fecha2.setVisible(false);
+        l_genero.setVisible(false);
+        cb_genero2.setVisible(false);
+        l_precio.setVisible(false);
+        tf_precio2.setVisible(false);
+        l_puntaje.setVisible(false);
+        js_puntaje2.setVisible(false);
+        l_titulo.setVisible(false);
+        tf_titulo2.setVisible(false);
+        l_autor.setVisible(false);
+        tf_autor2.setVisible(false);
+        tf_mod.setText("");
+    }//GEN-LAST:event_btn_modificarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -446,10 +706,14 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_login;
+    private javax.swing.JButton btn_continue;
     private javax.swing.JButton btn_crearlibro;
+    private javax.swing.JButton btn_modificar;
     private javax.swing.JComboBox<String> cb_genero;
+    private javax.swing.JComboBox<String> cb_genero2;
     private javax.swing.JComboBox<String> cb_mod;
     private com.toedter.calendar.JDateChooser dc_fecha;
+    private com.toedter.calendar.JDateChooser dc_fecha2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -465,24 +729,46 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JSpinner js_copias;
+    private javax.swing.JSpinner js_copias2;
     private javax.swing.JSpinner js_edicion;
+    private javax.swing.JSpinner js_edicion2;
     private javax.swing.JSpinner js_puntaje;
+    private javax.swing.JSpinner js_puntaje2;
+    private javax.swing.JLabel l_autor;
+    private javax.swing.JLabel l_copias;
+    private javax.swing.JLabel l_descripcion;
+    private javax.swing.JLabel l_edicion;
+    private javax.swing.JLabel l_fecha;
+    private javax.swing.JLabel l_genero;
+    private javax.swing.JLabel l_precio;
+    private javax.swing.JLabel l_puntaje;
+    private javax.swing.JLabel l_titulo;
     private javax.swing.JPanel p_crear;
     private javax.swing.JPanel p_fav;
     private javax.swing.JPanel p_login;
     private javax.swing.JPanel p_modificar;
     private javax.swing.JPanel p_otras;
     private javax.swing.JTextField tf_autor;
+    private javax.swing.JTextField tf_autor2;
     private javax.swing.JTextField tf_contraseña;
     private javax.swing.JTextField tf_descripcion;
+    private javax.swing.JTextField tf_descripcion2;
+    private javax.swing.JTextField tf_mod;
     private javax.swing.JTextField tf_precio;
+    private javax.swing.JTextField tf_precio2;
     private javax.swing.JTextField tf_titulo;
+    private javax.swing.JTextField tf_titulo2;
     private javax.swing.JTextField tf_usuario;
     private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
     ArrayList <Usuario> usuarios = new ArrayList();
+    Usuario admi = new Usuario("admi", "1234");
+    Usuario User1 = new Usuario("user1", "1234");
+    Usuario User2 = new Usuario("user2", "1234");
+    Usuario User4 = new Usuario("user3", "1234");
+    Usuario User5 = new Usuario("user4", "1234");
     ArrayList <Libro> libros = new ArrayList();
-            
+    Libro libro1 = new Libro("Cruzando el parque", "De un niño abandonado", 2, 100, 
+            "Romance", 990, 1, "Alessandro");
 }

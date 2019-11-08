@@ -42,6 +42,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="tp">
+      <Properties>
+        <Property name="selectedComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="p_login"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -89,18 +94,15 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                              <Component id="tf_autor" min="-2" pref="181" max="-2" attributes="0"/>
-                                              <Component id="dc_fecha" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tf_autor" min="-2" pref="181" max="-2" attributes="0"/>
+                                          <Component id="dc_fecha" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="js_edicion" min="-2" pref="42" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -145,10 +147,13 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="js_puntaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="js_edicion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <Component id="js_copias" min="-2" max="-2" attributes="0"/>
@@ -168,7 +173,7 @@
                       </Group>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="tf_precio" pref="41" max="32767" attributes="0"/>
+                      <Component id="tf_precio" pref="36" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -296,17 +301,76 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="l_genero" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                              <Component id="l_precio" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tf_mod" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="l_titulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="l_descripcion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tf_descripcion2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tf_titulo2" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="cb_genero2" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="l_fecha" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="l_autor" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel13" max="32767" attributes="0"/>
+                                                  <Component id="cb_mod" max="32767" attributes="0"/>
+                                                  <Component id="tf_autor2" alignment="0" max="32767" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="l_edicion" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="js_edicion2" min="-2" pref="52" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="dc_fecha2" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="tf_precio2" min="-2" pref="138" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="l_copias" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="js_copias2" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="l_puntaje" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="js_puntaje2" min="-2" pref="46" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btn_modificar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_continue" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel13" max="32767" attributes="0"/>
-                          <Component id="cb_mod" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="263" max="32767" attributes="0"/>
+                      <EmptySpace pref="252" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -320,10 +384,60 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_mod" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cb_mod" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="373" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_continue" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="l_titulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="l_autor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tf_titulo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tf_autor2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="l_descripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="l_fecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tf_descripcion2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="dc_fecha2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="l_puntaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="js_puntaje2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="l_edicion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="js_edicion2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="l_copias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="js_copias2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="l_genero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="l_precio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cb_genero2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_precio2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <Component id="btn_modificar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -331,10 +445,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Que libro desea Modificar"/>
+                <Property name="text" type="java.lang.String" value="Titulo del libro que desea modificar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="tf_mod">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
@@ -342,6 +456,76 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cb_mod">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_continue">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Continue"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_continueMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_titulo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Titulo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_descripcion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Descripcion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_autor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Autor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_fecha">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_puntaje">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Puntaje"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tf_titulo2">
+            </Component>
+            <Component class="javax.swing.JTextField" name="tf_autor2">
+            </Component>
+            <Component class="javax.swing.JTextField" name="tf_descripcion2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_copias">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Copias"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="js_puntaje2">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="js_copias2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_edicion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edicion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="js_edicion2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_genero">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Genero"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cb_genero2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -355,6 +539,23 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="dc_fecha2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_precio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Precio"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tf_precio2">
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_modificar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_modificarMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
