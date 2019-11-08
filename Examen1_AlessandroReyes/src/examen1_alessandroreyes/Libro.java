@@ -16,13 +16,17 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(String titulo, String descripcion, int puntaje, int copias, String genero, int valor, int edicion, String autor, Date publish) {
+    public Libro(String titulo, String descripcion, int puntaje, int copias, 
+            String genero, int valor, int edicion, String autor, Date publish) {
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.puntaje = puntaje;
-        this.copias = copias;
+        if(puntaje >= 1 && puntaje <= 5)
+            this.puntaje = puntaje;
+        if(copias > 0)
+            this.copias = copias;
         this.genero = genero;
-        this.valor = valor;
+        if(valor > 0)
+            this.valor = valor;
         this.edicion = edicion;
         this.autor = autor;
         this.publish = publish;
@@ -49,7 +53,8 @@ public class Libro {
     }
 
     public void setPuntaje(int puntaje) {
-        this.puntaje = puntaje;
+        if(puntaje >= 1 && puntaje <= 5)
+            this.puntaje = puntaje;
     }
 
     public int getCopias() {
@@ -57,7 +62,8 @@ public class Libro {
     }
 
     public void setCopias(int copias) {
-        this.copias = copias;
+        if(copias > 0)
+            this.copias = copias;
     }
 
     public String getGenero() {
@@ -73,7 +79,8 @@ public class Libro {
     }
 
     public void setValor(int valor) {
-        this.valor = valor;
+        if(valor > 0)
+            this.valor = valor;
     }
 
     public int getEdicion() {
