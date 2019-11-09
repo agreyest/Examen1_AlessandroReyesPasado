@@ -170,6 +170,9 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tf_contraseña = new javax.swing.JTextField();
         bt_login = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_listarlib = new javax.swing.JTextArea();
 
         jLabel14.setText("Ingrese su usuario");
 
@@ -639,6 +642,30 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
 
         tp.addTab("Log in", p_login);
 
+        ta_listarlib.setColumns(20);
+        ta_listarlib.setRows(5);
+        ta_listarlib.setText("\n");
+        jScrollPane2.setViewportView(ta_listarlib);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        tp.addTab("Libros", jPanel1);
+
         tp.setSelectedComponent(p_login);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -816,6 +843,12 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
                     ta_lista.append(libros.get(i).getTitulo()+"\n");
             }
         }
+        if (tp.getSelectedIndex() == 4) {
+            ta_listarlib.setText("");
+            for (int i = 0; i < libros.size(); i++) {
+                ta_lista.append(libros.get(i).getTitulo() + "\n");
+            }
+        }
     }//GEN-LAST:event_tpStateChanged
 
     /**
@@ -886,7 +919,9 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner js_copias;
     private javax.swing.JSpinner js_copias2;
     private javax.swing.JSpinner js_edicion;
@@ -908,6 +943,7 @@ public class Examen1_AlessandroReyes extends javax.swing.JFrame {
     private javax.swing.JPanel p_modificar;
     private javax.swing.JPanel p_otras;
     private javax.swing.JTextArea ta_lista;
+    private javax.swing.JTextArea ta_listarlib;
     private javax.swing.JTextField tf_autor;
     private javax.swing.JTextField tf_autor2;
     private javax.swing.JTextField tf_contraseña;
